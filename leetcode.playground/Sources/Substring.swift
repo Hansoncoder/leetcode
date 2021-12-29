@@ -17,9 +17,9 @@ import Foundation
 // 1.四个变量
 //    temp:[char:Int] = [:] 保存字符最后出现位置
 //    maxLength: Int = 0 无重复子串的最大长度
-//    start: Int = 1 存储最新无重复字符串的开始位置
+//    start: Int = 0 存储最新无重复字符串的开始位置
 //    end: Int = 0 存储当前遍历到的位置
-// 2.遍历字符串，取出s[end-1]字符char
+// 2.遍历字符串，取出s[end]字符char
 //    2.1 查找字符上一次出现位置 pre = temp[char]
 //    2.2 如果找到 pre，并且pre在最新的无重复子串区间[start : end]
 //    2.2.1 移动 start 到 pre下一个位置，确保[start : end]区间无重复
