@@ -13,3 +13,6 @@ testTwoSum([1,2,5,4,9,6], 9)
 
 /**  链表两数和 */
 testAddTwoNumbers([9,9,9,9,9,9,9],[9,9,9,9])
+
+/**  字符串 s的最长子串长度 */
+testLengthOfLongestSubstring()

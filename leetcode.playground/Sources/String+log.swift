@@ -7,6 +7,9 @@ extension String {
     }
     
     public var end: String {
+        if contains("-----") {
+            return "\n--------------\(self)-------------\n"
+        }
         return self + "\n---------------------------\n"
     }
 }
