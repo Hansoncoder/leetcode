@@ -19,3 +19,7 @@ testLengthOfLongestSubstring(2, length: 6)
 
 /**  单链表反转 */
 testReverseListNode([1,2,3,4,5])
+
+let tree = TreeNode<Int>.createTree([1,2,5,3,2,1,6,4])
+tree?.printOrder()
+
