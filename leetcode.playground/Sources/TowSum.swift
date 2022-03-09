@@ -54,25 +54,27 @@ public func testTwoSum(_ nums: [Int], _ target: Int) {
 
 // MARK: -  算法
 
-public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-    guard l1 != nil, l2 != nil else {
-        return nil
-    }
-
-    var first = l1, last = l2
-    var value = first!.val + last!.val
+public func addTwoNumbers(_ l1: ListNode<Int>, _ l2: ListNode<Int>) -> ListNode<Int> {
+    
+    var first: ListNode<Int>? = l1
+    var last: ListNode<Int>? = l2
+    // 第一位相加,创建头节点
+    var value = first!.value + last!.value
     var bit: Int = 0
-    let newList: ListNode? = ListNode(value % 10)
+    let newList: ListNode<Int> = ListNode(value % 10)
+    
+    // 接下来后面几位相加
     var tempNode: ListNode? = newList
     while first?.next != nil || last?.next != nil {
         bit = value / 10
         first = first?.next
         last = last?.next
-        value = bit + (first?.val ?? 0) + (last?.val ?? 0)
+        value = bit + (first?.value ?? 0) + (last?.value ?? 0)
         tempNode?.next = ListNode(value % 10)
         tempNode = tempNode?.next
     }
 
+    // 最后一位判断是否进位
     if value >= 10 {
         tempNode?.next = ListNode(value / 10)
     }
@@ -82,15 +84,6 @@ public func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
 
 // MARK: - 测试辅助
 
-/// 辅助声明
-public class ListNode {
-    public var val: Int
-    public var next: ListNode?
-    public init() { val = 0; next = nil }
-    public init(_ val: Int) { self.val = val; next = nil }
-    public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next }
-}
-
 /// 测试用例格式转化
 public func testAddTwoNumbers(_ first: [Int], _ last: [Int]) {
     guard first.count > 1 && last.count > 1 else {
@@ -98,44 +91,15 @@ public func testAddTwoNumbers(_ first: [Int], _ last: [Int]) {
         return
     }
 
-    /// 创建链表
-    let node = createNode(first, last)
-
-    /// 调用算法
-    var result = addTwoNumbers(node.0, node.1)
-
-    /// 输出结果
-    var resultList: [Int] = []
-    while result != nil {
-        resultList.append(result!.val)
-        result = result?.next
-    }
+    // 创建链表
+    let l1 = ListNode<Int>.createNode(first)
+    let l2 = ListNode<Int>.createNode(last)
+    
+    // 调用算法
+    let result = addTwoNumbers(l1, l2)
+    
+    // 输出结果
     print("input:\(first)".begin("链表相加"))
     print("input:\(last)")
-    print("ouput:\(resultList)".end)
-}
-
-fileprivate func createNode(_ first: [Int], _ last: [Int]) -> (ListNode?, ListNode?) {
-    let l1 = ListNode(first.first!)
-    let l2 = ListNode(last.first!)
-    let firstIsMin = first.count < last.count
-    let maxCount = min(first.count, last.count)
-
-    var firstNode: ListNode? = l1
-    var lastNode: ListNode? = l2
-    for i in 1 ..< maxCount {
-        firstNode?.next = ListNode(first[i])
-        lastNode?.next = ListNode(last[i])
-        firstNode = firstNode?.next
-        lastNode = lastNode?.next
-    }
-
-    var tempNode = firstIsMin ? firstNode : lastNode
-    let tempList = firstIsMin ? last : first
-    for i in maxCount ..< max(first.count, last.count) {
-        tempNode?.next = ListNode(tempList[i])
-        tempNode = tempNode?.next
-    }
-
-    return (l1, l2)
+    print("ouput:\(result.allValue())".end)
 }

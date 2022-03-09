@@ -16,3 +16,6 @@ testAddTwoNumbers([9,9,9,9,9,9,9],[9,9,9,9])
 
 /**  字符串 s的最长子串长度 */
 testLengthOfLongestSubstring(2, length: 6)
+
+/**  单链表反转 */
+testReverseListNode([1,2,3,4,5])
