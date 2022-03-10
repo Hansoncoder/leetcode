@@ -20,7 +20,9 @@ testLengthOfLongestSubstring(2, length: 6)
 /**  单链表反转 */
 testReverseListNode([1,2,3,4,5])
 
-//let tree = TreeNode<Int>.createTree([1,2,5,3,2,1,6,4])
-//tree?.printOrder()
+/**  动态规划计算斐波那契数列 */
+testFibonacci(45)
 
-testFibonacci(10)
+/**  快速排序 */
+testQuickSort(["1","9","8","2","5","7","3"])
+
