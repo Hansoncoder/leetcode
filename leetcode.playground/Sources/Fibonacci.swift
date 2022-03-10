@@ -5,6 +5,8 @@ import Foundation
 // 其中 f(1) = 1 f(2) = 1
 
 //MARK: -  递归求解
+// 时间复杂度为 O(2^n)
+// 空间复杂度为O(1)
 public func fibonacciFromRecursive(_ n: Int) -> Int64 {
     if n == 1 || n == 2 {
         return 1
@@ -13,6 +15,8 @@ public func fibonacciFromRecursive(_ n: Int) -> Int64 {
 }
 
 //MARK: -  动态规划
+// 时间复杂度为 O(N)
+// 空间复杂度为O(1)
 public func fibonacciFromDynamic(_ n: Int) -> Int64 {
     var result: Int64 = 1
     var pre1: Int64 = 1

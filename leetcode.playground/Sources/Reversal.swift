@@ -10,6 +10,8 @@ import Foundation
 //   3.3 指针下移. pre = current, current = next
 // 4.返回 pre 指针
 
+// 时间复杂度为 O(N)
+// 空间复杂度为O(1)
 public func reverseList<T>(list: ListNode<T>) -> ListNode<T> {
     var currentNode = list.next
     var preNode = list

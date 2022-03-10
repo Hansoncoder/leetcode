@@ -11,6 +11,10 @@ import Foundation
 // 4.哨兵和基位交换,list[left] 和 list[i] 交换
 // 5.分别对基位左/右两边进行以上重复操作，直到left == right
 
+// 最差时间复杂度为 O(N²)
+// 平均时间复杂度O(NLogN)
+// 空间复杂度为O(1)
+
 private func _quickSort<T: Comparable>(_ list: inout [T], left: Int, right: Int) {
     guard left < right else { return }
     
