@@ -39,5 +39,5 @@ public func testReverseListNode<T>(_ list: [T]) {
     
     // 输出结果
     print("input:\(list)".begin("链表反转"))
-    print("ouput:\(result.allValue())".end)
+    print("output:\(result.allValue())".end)
 }

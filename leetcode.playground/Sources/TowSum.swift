@@ -35,7 +35,7 @@ public func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 public func testTwoSum(_ nums: [Int], _ target: Int) {
     print("input:\(nums)  \ninput: \(target)".begin("两数和寻找"))
     let result = twoSum(nums, target)
-    print("ouput:\(result)".end)
+    print("output:\(result)".end)
 }
 
 /**
@@ -101,5 +101,5 @@ public func testAddTwoNumbers(_ first: [Int], _ last: [Int]) {
     // 输出结果
     print("input:\(first)".begin("链表相加"))
     print("input:\(last)")
-    print("ouput:\(result.allValue())".end)
+    print("output:\(result.allValue())".end)
 }

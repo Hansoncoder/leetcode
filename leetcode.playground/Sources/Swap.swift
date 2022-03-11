@@ -21,7 +21,7 @@ public func testBitSwap(first: Int, last: Int) {
 
     bitSwap(&a, &b)
 
-    print("ouput:(\(a),\(b))".end)
+    print("output:(\(a),\(b))".end)
 }
 
 // MARK: - 算法
@@ -45,5 +45,5 @@ public func testTupleSwap<T>(first: T, last: T) {
 
     let result = tupleSwap(tuple)
 
-    print("ouput:\(result)".end)
+    print("output:\(result)".end)
 }

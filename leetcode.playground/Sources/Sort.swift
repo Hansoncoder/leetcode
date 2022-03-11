@@ -63,7 +63,7 @@ public func quickSort<T: Comparable>(_ list: [T]) -> [T] {
 public func testQuickSort<T: Comparable>(_ list: [T]) {
     let result = quickSort(list)
     print("input: \(list)".begin("快速排序"))
-    print("ouput: \(result)\n".end)
+    print("output: \(result)\n".end)
     sleep(10)
 }
 

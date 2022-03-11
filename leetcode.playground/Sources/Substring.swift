@@ -54,7 +54,7 @@ public func testLengthOfLongestSubstring(_ count: Int = 3, length: Int = 8) {
     for _ in 0 ..< count {
         let testString = String.randomString(length: length)
         print("input: \(testString)")
-        print("ouput: \(lengthOfLongestSubstring(testString))\n")
+        print("output: \(lengthOfLongestSubstring(testString))\n")
     }
     print("-------------------".end)
 }

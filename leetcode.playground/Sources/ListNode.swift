@@ -49,6 +49,6 @@ extension ListNode {
     /// 打印单链表中的value
     public func printAllValue() {
         print("ListNode".begin("单链表输出"))
-        print("ouput:\(allValue())".end)
+        print("output:\(allValue())".end)
     }
 }

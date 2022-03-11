@@ -30,6 +30,6 @@ public func fibonacciFromDynamic(_ n: Int) -> Int64 {
 }
 
 public func testFibonacci(_ n: Int) {
-    print("Input:\(n)".begin("单链表输出"))
-    print("ouput:\(fibonacciFromDynamic(n))".end)
+    print("input:\(n)".begin("单链表输出"))
+    print("output:\(fibonacciFromDynamic(n))".end)
 }

@@ -127,8 +127,8 @@ public func printPostorderTree<T>(_ tree: TreeNode<T>?) {
 
 var outputList:[Any] = []
 public func testCreatBinaryTree<T: Comparable>(_ list:[T]) {
-    print("Input:\(list)".begin("创建二叉排序树,中序遍历输出"))
+    print("input:\(list)".begin("创建二叉排序树,中序遍历输出"))
     let node = TreeNode<T>.createTree(list)
     let result = node?.getInorder()
-    print("Output:\(result ?? [])".end)
+    print("output:\(result ?? [])".end)
 }
