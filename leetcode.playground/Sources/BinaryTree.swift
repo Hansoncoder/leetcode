@@ -76,14 +76,17 @@ extension TreeNode {
     
     /// 先序遍历(对于排序树，先序是乱序的)
     public func printPreorder() {
+        outputList = []
         printPreorderTree(self)
     }
     /// 中序遍历(排序树，只有中序是有序的)
     public func printInorder() {
+        outputList = []
         printInorderTree(self)
     }
     /// 后序遍历(对于排序树，后序是乱序的)
     public func printPostorder() {
+        outputList = []
         printPostorderTree(self)
     }
 }
@@ -92,7 +95,7 @@ extension TreeNode {
 /// 先序遍历(对于排序树，先序是乱序的)
 public func printPreorderTree<T>(_ tree: TreeNode<T>?) {
     guard let tree = tree else { return }
-    print(tree.value)
+    outputList.append(tree.value)
     printPreorderTree(tree.left)
     printPreorderTree(tree.right)
 }
@@ -102,7 +105,7 @@ public func printInorderTree<T>(_ tree: TreeNode<T>?) {
     guard let tree = tree else { return }
 
     printInorderTree(tree.left)
-    print(tree.value)
+    outputList.append(tree.value)
     printInorderTree(tree.right)
 }
 
@@ -112,13 +115,13 @@ public func printPostorderTree<T>(_ tree: TreeNode<T>?) {
 
     printPostorderTree(tree.left)
     printPostorderTree(tree.right)
-    print(tree.value)
+    outputList.append(tree.value)
 }
 
-
+var outputList:[Any] = []
 public func testCreatBinaryTree<T: Comparable>(_ list:[T]) {
-    print("Input:\(list)".begin("创建二叉排序树"))
+    print("Input:\(list)".begin("创建二叉排序树,中序遍历输出"))
     let node = TreeNode<T>.createTree(list)
     node?.printInorder()
-    print("".end)
+    print("Output:\(outputList)".end)
 }
