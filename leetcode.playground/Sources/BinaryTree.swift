@@ -69,25 +69,32 @@ extension TreeNode {
 // MARK: - 二叉树遍历
 extension TreeNode {
     /// 排序树的有序输出
-    public func printOrder() {
+    public func printInorder() {
+        print(orders())
+    }
+    
+    public func orders() -> [Any] {
         /// 使用中序遍历，可以输出有序的序列
-        printInorder()
+        return getInorder()
     }
     
     /// 先序遍历(对于排序树，先序是乱序的)
-    public func printPreorder() {
+    public func getPreorder() -> [Any] {
         outputList = []
         printPreorderTree(self)
+        return outputList
     }
     /// 中序遍历(排序树，只有中序是有序的)
-    public func printInorder() {
+    public func getInorder() -> [Any] {
         outputList = []
         printInorderTree(self)
+        return outputList
     }
     /// 后序遍历(对于排序树，后序是乱序的)
-    public func printPostorder() {
+    public func printPostorder() -> [Any] {
         outputList = []
         printPostorderTree(self)
+        return outputList
     }
 }
 
@@ -122,6 +129,6 @@ var outputList:[Any] = []
 public func testCreatBinaryTree<T: Comparable>(_ list:[T]) {
     print("Input:\(list)".begin("创建二叉排序树,中序遍历输出"))
     let node = TreeNode<T>.createTree(list)
-    node?.printInorder()
-    print("Output:\(outputList)".end)
+    let result = node?.getInorder()
+    print("Output:\(result ?? [])".end)
 }
