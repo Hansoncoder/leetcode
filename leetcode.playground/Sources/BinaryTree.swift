@@ -9,39 +9,60 @@ public final class TreeNode<T> {
 
 // MARK: - 二叉排序树创建
 extension TreeNode {
-    /// 创建二叉树的节点
-    private static func creatNote<T: Comparable>(_ tree: TreeNode<T>, value: T) {
-        if value <= tree.value {
-            tree.left = TreeNode<T>(value: value)
-        } else {
-            tree.right = TreeNode<T>(value: value)
+    
+    /// 创建二叉排序树
+    /// 搜索插入节点伪代码
+    /// searchNode(node,key) -> Node {
+    ///   var temp = node
+    ///   while temp.left != nil || temp.right != nil {
+    ///        if temp.value < key {
+    ///             temp = temp.left
+    ///             continue
+    ///         } else {
+    ///             temp = temp.right
+    ///             continue
+    ///         }
+    ///       break
+    ///    }
+    ///    returm temp
+    ///}
+    private static func searchNode<T: Comparable>(node: TreeNode<T>, value: T) -> TreeNode<T> {
+        var temp = node
+        while temp.left != nil || temp.right != nil {
+            if value < temp.value {
+                if let left = temp.left {
+                    temp = left
+                    continue
+                }
+            } else {
+                if let right = temp.right {
+                    temp = right
+                    continue
+                }
+            }
+            break
         }
+        return temp
     }
     
     /// 创建二叉排序树
     public static func createTree<T: Comparable>(_ list: [T]) -> TreeNode<T>? {
         guard list.count > 1 else { return nil }
 
-        let tree = TreeNode<T>(value: list.first!)
-        var leaf = tree
+        let head = TreeNode<T>(value: list.first!)
+        var temp = head
         for index in 1 ..< list.count {
             let value = list[index]
-            leaf = tree
-            while leaf.left != nil || leaf.right != nil {
-                if value <= leaf.value {
-                    if let left = leaf.left {
-                        leaf = left
-                        continue
-                    }
-                } else if let right = leaf.right {
-                    leaf = right
-                    continue
-                }
-                break
+            // 查找插入节点
+            temp = searchNode(node: head, value: value)
+            // 创建插入节点
+            if value <= temp.value {
+                temp.left = TreeNode<T>(value: value)
+            } else {
+                temp.right = TreeNode<T>(value: value)
             }
-            creatNote(leaf, value: value)
         }
-        return tree
+        return head
     }
 }
 
@@ -94,3 +115,10 @@ public func printPostorderTree<T>(_ tree: TreeNode<T>?) {
     print(tree.value)
 }
 
+
+public func testCreatBinaryTree<T: Comparable>(_ list:[T]) {
+    print("Input:\(list)".begin("创建二叉排序树"))
+    let node = TreeNode<T>.createTree(list)
+    node?.printInorder()
+    print("".end)
+}

@@ -26,3 +26,5 @@ testFibonacci(45)
 /**  快速排序 */
 testQuickSort(["1","9","8","2","5","7","3"])
 
+/**  创建二叉排序树 */
+testCreatBinaryTree(["1","9","8","2","5","7","3"])
